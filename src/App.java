@@ -69,7 +69,7 @@ public class App {
                 if (ourVal.charAt(j) == '1') {
                     hardHandTotalVal += 1;
                     softHandTotalVal += 11;
-                } else if (ourVal.charAt(j) == 'J' || ourVal.charAt(j) == 'D'
+                } else if (ourVal.charAt(j) == 'A' || ourVal.charAt(j) == 'J' || ourVal.charAt(j) == 'D'
                     || ourVal.charAt(j) == 'E' || ourVal.charAt(j) == 'K') {
                     hardHandTotalVal += 10;
                     softHandTotalVal += 10;
