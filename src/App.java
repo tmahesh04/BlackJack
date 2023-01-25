@@ -13,6 +13,7 @@ public class App {
             String line;
 
             while ((line = br.readLine()) != null) {
+                System.out.println(line);
                 int softHandTotalVal = 0;
                 int hardHandTotalVal = 0;
                 String[] columns = line.split(",");
@@ -21,7 +22,7 @@ public class App {
                     //                String dealerCard = line.substring(1, 6);
                     int ourStart = 0;
                     int finishSearch = 0;
-                    while (ourStart < line.length() && finishSearch < 12) {
+                    while (ourStart < line.length() && finishSearch < 8) {
                         if (line.charAt(ourStart) == ',') {
                             ourStart++;
                             finishSearch++;
@@ -32,6 +33,7 @@ public class App {
                         // System.out.println(line.charAt(ourStart));
                         // System.out.println(ourStart + " " + finishSearch);
                     }
+                    System.out.println(line.length());
                     String ourCard = line.substring(ourStart);
                     while (ourCard.charAt(ourCard.length() - 1) == ',') {
                         if (ourCard.charAt(ourCard.length() - 1) == ',') {
@@ -113,9 +115,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         //Define in and out file absolute paths
         File inFile = new File(
-            "/Users/roymontemayor/Desktop/Rice/Spring 2023/COMP 380/Homework 1/BlackJack/src/blackjack_table_samples-V1.csv");
+            "/Users/roymontemayor/Desktop/Rice/Spring 2023/COMP 380/Homework 1/BlackJack/src/blackjack_table_samples-V3.csv");
         File outFile = new File(
-            "/Users/roymontemayor/Desktop/Rice/Spring 2023/COMP 380/Homework 1/COMP_380_HW_1_Solutions_3.csv");
+            "/Users/roymontemayor/Desktop/Rice/Spring 2023/COMP 380/Homework 1/COMP_380_HW_1_Solutions.csv");
 
         bjCalc(inFile, outFile);
 
