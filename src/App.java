@@ -1,8 +1,15 @@
 import java.io.*;
 
 public class App {
-
+    /**
+     * Method to parse and describe the hit and stay naive blackjack method. 
+     * @param inFile - the csv that we want to read and determine hit or stay - absolute path
+     * @param outFile - the new csv file that we want - absolute path
+     * @throws IOException -File Error
+     * @throws NullPointerException - Line unable to be parsed
+     */
     public static void bjCalc(File inFile, File outFile) throws IOException, NullPointerException{
+        //init the reader and writer
         BufferedReader br = null;
         BufferedWriter bw = null;
 
@@ -11,17 +18,20 @@ public class App {
             bw = new BufferedWriter(new FileWriter(outFile));
 
             String line;
-
+            //iterate through all lines in csv
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
+                // System.out.println(line);
                 int softHandTotalVal = 0;
                 int hardHandTotalVal = 0;
+                //split columns for output
                 String[] columns = line.split(",");
+                //Check if we can parse the string
                 if(line.charAt(0) == ',') {
                     //            System.out.println(line);
                     //                String dealerCard = line.substring(1, 6);
                     int ourStart = 0;
                     int finishSearch = 0;
+                    //identify the starting index of our cards
                     while (ourStart < line.length() && finishSearch < 8) {
                         if (line.charAt(ourStart) == ',') {
                             ourStart++;
@@ -33,8 +43,9 @@ public class App {
                         // System.out.println(line.charAt(ourStart));
                         // System.out.println(ourStart + " " + finishSearch);
                     }
-                    System.out.println(line.length());
+                    // System.out.println(line.length());
                     String ourCard = line.substring(ourStart);
+                    //delete ending 2 commas if there are any
                     while (ourCard.charAt(ourCard.length() - 1) == ',') {
                         if (ourCard.charAt(ourCard.length() - 1) == ',') {
                             ourCard = ourCard.substring(0, ourCard.length() - 1);
@@ -46,7 +57,7 @@ public class App {
 
                     //                String dealerVal = String.valueOf(dealerCard.charAt(4));
                     String ourVal = "";
-
+                    //get the values from the hexcode of our cards
                     int adjust = 0;
                     boolean canAdd = true;
                     for (int chr = 0; chr < ourCard.length(); chr++) {
@@ -62,7 +73,7 @@ public class App {
                         }
                     }
 
-
+                    //parse and make unumeric understandings of the card that we have for hard and soft hand total
                     for (int j = 0; j < ourVal.length(); j++) {
                         if (ourVal.charAt(j) == '1') {
                             hardHandTotalVal += 1;
@@ -84,6 +95,7 @@ public class App {
                     }
                     //            System.out.println("hard:" + hardHandTotalVal + " soft: " + softHandTotalVal);
                 }
+                //naive algorithm for hitting or staying
                 if (hardHandTotalVal == 0){
                     columns[0] = "";
                 }
@@ -96,11 +108,12 @@ public class App {
                         columns[0] = "HIT";
                     }
                 }
-
+                //write to the new csv
                 bw.write(String.join(",", columns));
                 bw.newLine();
 
             }
+        //catch possible exceptions
         } catch(IOException e){
             System.out.println("Error opening or writing to file: " + e);
         } catch(NullPointerException n){
