@@ -20,7 +20,7 @@ public class App {
             String line;
             //iterate through all lines in csv
             while ((line = br.readLine()) != null) {
-                 System.out.println(line);
+//                System.out.println(line);
                 int softHandTotalVal = 0;
                 int hardHandTotalVal = 0;
                 //split columns for output
@@ -73,6 +73,14 @@ public class App {
                         }
                     }
 
+                    //Check if our current hand is a pair and get the value
+                    String pairVal = "";
+                    if (ourVal.length() == 2) {
+                        if (ourVal.charAt(0) == ourVal.charAt(1)){
+                            pairVal += ourVal.charAt(0);
+                        }
+                    }
+
                     //parse and make unumeric understandings of the card that we have for hard and soft hand total
                     boolean aceCounted = false;
                     for (int j = 0; j < ourVal.length(); j++) {
@@ -99,8 +107,9 @@ public class App {
                                 Integer.parseInt(String.valueOf(ourVal.charAt(j)));
                         }
                     }
-                                System.out.println("hard:" + hardHandTotalVal + " soft: " + softHandTotalVal);
+//                                System.out.println("hard:" + hardHandTotalVal + " soft: " + softHandTotalVal);
                 }
+
                 //naive algorithm for hitting or staying
                 if (hardHandTotalVal == 0){
                     columns[0] = "";
@@ -134,9 +143,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         //Define in and out file absolute paths
         File inFile = new File(
-            "/Users/roymontemayor/Desktop/Rice/Spring 2023/COMP 380/Homework 1/COMP_380_HW1_Example.csv");
+            "/Users/roymontemayor/Desktop/Rice/Spring 2023/COMP 380/BlackJack Software/BlackJack/HW2/table-samples.csv");
         File outFile = new File(
-            "/Users/roymontemayor/Desktop/Rice/Spring 2023/COMP 380/Homework 1/COMP_380_HW_1_DoubleAce.csv");
+            "/Users/roymontemayor/Desktop/Rice/Spring 2023/COMP 380/BlackJack Software/COMP_380_HW_2_Output.csv");
 
         bjCalc(inFile, outFile);
 
