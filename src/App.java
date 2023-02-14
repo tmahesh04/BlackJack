@@ -211,11 +211,11 @@ public class App {
         softVals.put("199", new String[]{"STAY", "STAY"});
         softVals.put("1910", new String[]{"STAY", "STAY"});
         softVals.put("18A", new String[]{"HIT", "HIT"});
-        softVals.put("182", new String[]{"DOUBLE", "HIT"});
-        softVals.put("183", new String[]{"DOUBLE", "HIT"});
-        softVals.put("184", new String[]{"DOUBLE", "HIT"});
-        softVals.put("185", new String[]{"DOUBLE", "HIT"});
-        softVals.put("186", new String[]{"DOUBLE", "HIT"});
+        softVals.put("182", new String[]{"DOUBLE", "STAY"});
+        softVals.put("183", new String[]{"DOUBLE", "STAY"});
+        softVals.put("184", new String[]{"DOUBLE", "STAY"});
+        softVals.put("185", new String[]{"DOUBLE", "STAY"});
+        softVals.put("186", new String[]{"DOUBLE", "STAY"});
         softVals.put("187", new String[]{"STAY", "STAY"});
         softVals.put("188", new String[]{"STAY", "STAY"});
         softVals.put("189", new String[]{"HIT", "HIT"});
