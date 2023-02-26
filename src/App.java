@@ -522,21 +522,20 @@ public class App {
 //                                System.out.println("hard:" + hardHandTotalVal + " soft: " + softHandTotalVal);
                 }
 
-                System.out.println(hardHandTotalVal + "," + softHandTotalVal);
-                System.out.println(dealerCard);
-                System.out.println(pairVal);
+//                System.out.println(hardHandTotalVal + "," + softHandTotalVal);
+//                System.out.println(dealerCard);
+//                System.out.println(pairVal);
 
 
 
                 //naive algorithm for hitting or staying
                 if (hardHandTotalVal == 0){
-                    columns[0] = "";
+                    softHandTotalVal = 0;
                 }
                 else if (softHandTotalVal == 21 || hardHandTotalVal == 21) {
                     columns[0] = "STAY";
                 }
                 else if (!pairVal.equals("")) {
-                    System.out.println("hi");
                     String keyVal = "";
                     if (dealerCard.equals("a") || dealerCard.equals("b") || dealerCard.equals("d") || dealerCard.equals("e")) {
                         keyVal = String.valueOf(pairVal) + "10";
@@ -547,7 +546,7 @@ public class App {
                     else {
                         keyVal = (String.valueOf(pairVal) + dealerCard);
                     }
-                    System.out.println(keyVal);
+//                    System.out.println(keyVal);
                     columns[0] = doubleVals.get(keyVal);
                 }
                 else if (softHandTotalVal != hardHandTotalVal && softHandTotalVal > 10 && softHandTotalVal <= 20) {
