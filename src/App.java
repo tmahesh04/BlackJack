@@ -205,7 +205,7 @@ public class App {
         softVals.put("193", new String[]{"STAY", "STAY"});
         softVals.put("194", new String[]{"STAY", "STAY"});
         softVals.put("195", new String[]{"STAY", "STAY"});
-        softVals.put("196", new String[]{"DOUBLE", "HIT"});
+        softVals.put("196", new String[]{"DOUBLE", "STAY"});
         softVals.put("197", new String[]{"STAY", "STAY"});
         softVals.put("198", new String[]{"STAY", "STAY"});
         softVals.put("199", new String[]{"STAY", "STAY"});
